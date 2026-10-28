@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote  name="github"
-           fetch=".."
+           fetch="https://github.com"
            review="review.lineageos.org" />
+
+  <remote  name="ksu"
+           fetch="https://github.com/yusufnoor786" />
 
   <remote  name="aosp"
            fetch="https://android.googlesource.com"
@@ -34,7 +37,7 @@
   <project path="prebuilts/ndk-r23" name="toolchain/prebuilts/ndk/r23" clone-depth="1" remote="aosp" />
   <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" remote="aosp" />
 
-  <project path="manifest" name="LineageOS/android_kernel_google_gs-6.1_manifest" />
+  <project path="manifest" name="android_kernel_google_gs-6.1_manifest" remote="ksu" />
   <project path="private/devices" name="LineageOS/android_kernel_google_gs-6.1_devices">
     <linkfile dest="AGENTS.md" src="google/common/workspace/root.AGENTS.md" />
     <linkfile dest="WORKSPACE" src="google/common/workspace/root.WORKSPACE" />
@@ -58,4 +61,6 @@
     <linkfile dest="build_stallion.sh" src="google/stallion/build_stallion.sh" />
   </project>
   <project path="private/google-modules" name="LineageOS/android_kernel_google_gs-6.1_google-modules" />
+  <project path="private/google-modules/kernelsu" name="android_kernel_google_gs-6.1_kernelsu" remote="ksu" revision="refs/heads/lineage-24.0" />
+  <project path="private/google-modules/susfs" name="android_kernel_google_gs-6.1_susfs" remote="ksu" revision="refs/heads/lineage-24.0" />
 </manifest>
